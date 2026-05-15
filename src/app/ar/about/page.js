@@ -46,18 +46,12 @@ export default function AboutAr() {
         <div className="container">
           <div className={styles.vmGrid}>
             <Reveal className={styles.vmCol}>
-              <span className={`eyebrow ${styles.vmEyebrow}`}>
-                <span className="diamond" /> {ui.labels.eyebrow.vision}
-              </span>
               <h2 className={`h2 ${styles.vmTitle}`}>
                 <em className="italic">رؤيتنا</em>
               </h2>
               <p className={styles.vmBody}>{brand.vision}</p>
             </Reveal>
             <Reveal className={styles.vmCol} delay={200}>
-              <span className={`eyebrow ${styles.vmEyebrow}`}>
-                <span className="diamond" /> {ui.labels.eyebrow.mission}
-              </span>
               <h2 className={`h2 ${styles.vmTitle}`}>
                 <em className="italic">مهمتنا</em>
               </h2>

@@ -53,18 +53,12 @@ export default function AboutPage() {
         <div className="container">
           <div className={styles.vmGrid}>
             <Reveal className={styles.vmCol}>
-              <span className={`eyebrow ${styles.vmEyebrow}`}>
-                <span className="diamond" /> Vision
-              </span>
               <h2 className={`h2 ${styles.vmTitle}`}>
                 <em className="italic">Vision</em>
               </h2>
               <p className={styles.vmBody}>{brand.vision}</p>
             </Reveal>
             <Reveal className={styles.vmCol} delay={200}>
-              <span className={`eyebrow ${styles.vmEyebrow}`}>
-                <span className="diamond" /> Mission
-              </span>
               <h2 className={`h2 ${styles.vmTitle}`}>
                 <em className="italic">Mission</em>
               </h2>
