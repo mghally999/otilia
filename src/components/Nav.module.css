@@ -28,15 +28,27 @@
 }
 .nav.scrolled::before { opacity: 0; }
 
-.nav .link,
-.nav .brand,
-.nav .langSwitch {
+/* Over the hero, force light text regardless of theme — the overlay is
+   always dark at the top, so we cannot rely on theme-aware --fg here. */
+.nav:not(.scrolled) .link,
+.nav:not(.scrolled) .brand,
+.nav:not(.scrolled) .langSwitch,
+.nav:not(.scrolled) .themeToggle {
+  color: rgba(232, 222, 201, 0.85);
   text-shadow: 0 1px 14px rgba(0, 0, 0, 0.55);
 }
-.nav.scrolled .link,
-.nav.scrolled .brand,
-.nav.scrolled .langSwitch {
-  text-shadow: none;
+.nav:not(.scrolled) .linkActive {
+  color: rgba(232, 222, 201, 1);
+}
+.nav:not(.scrolled) .themeDot[data-active="true"] {
+  color: var(--brand-gold);
+}
+.nav:not(.scrolled) .burger i {
+  background: rgba(232, 222, 201, 0.9);
+}
+.nav:not(.scrolled) .langSwitch,
+.nav:not(.scrolled) .themeToggle {
+  border-color: rgba(232, 222, 201, 0.35);
 }
 
 .bar {
