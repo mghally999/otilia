@@ -57,7 +57,7 @@ export default function AboutPage() {
                 <span className="diamond" /> Vision
               </span>
               <h2 className={`h2 ${styles.vmTitle}`}>
-                <em className="italic">Vision.</em>
+                <em className="italic">Vision</em>
               </h2>
               <p className={styles.vmBody}>{brand.vision}</p>
             </Reveal>
@@ -66,7 +66,7 @@ export default function AboutPage() {
                 <span className="diamond" /> Mission
               </span>
               <h2 className={`h2 ${styles.vmTitle}`}>
-                <em className="italic">Mission.</em>
+                <em className="italic">Mission</em>
               </h2>
               <p className={styles.vmBody}>{brand.mission}</p>
             </Reveal>
@@ -204,7 +204,7 @@ export default function AboutPage() {
         <div className="container">
           <Reveal className={styles.ctaInner}>
             <h2 className={`h1 ${styles.ctaTitle}`}>
-              A new room <em className="italic">begins with a conversation.</em>
+              A new space <em className="italic">begins with a conversation.</em>
             </h2>
             <Link href="/contact" className="btn">
               Begin a Project

@@ -23,7 +23,7 @@ export default function ProjectsAr() {
           <MaskedHeading
             as="h1"
             className={`display ${styles.h1}`}
-            lines={["محفظة من", <em key="i">ست غرف.</em>]}
+            lines={["محفظة من", <em key="i">مساحات مختلفة.</em>]}
           />
           <Reveal delay={300}>
             <p className={`lead ${styles.lead}`}>

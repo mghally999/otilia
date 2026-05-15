@@ -33,13 +33,7 @@ const processSteps = [
     n: "III",
     label: "Documentation",
     body:
-      "Full technical packages — drawings, schedules, specifications. Every joiner, mason and electrician works from one source of truth.",
-  },
-  {
-    n: "IV",
-    label: "Delivery",
-    body:
-      "We hold the project together until reveal. Site visits, snag lists, styling — finishing what we started.",
+      "Full technical packages — drawings, schedules, specifications.",
   },
 ];
 
@@ -101,7 +95,7 @@ export default function ServicesPage() {
           <Reveal className={styles.processHead}>
             <p className="eyebrow"><span className="gold-stroke" /> Process</p>
             <h2 className="h2">
-              Four movements, <em className="italic">one room.</em>
+              Four stages, <em className="italic">one space.</em>
             </h2>
           </Reveal>
 

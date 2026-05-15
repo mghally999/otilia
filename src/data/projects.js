@@ -50,7 +50,7 @@ export const projects = [
         kicker: "Result",
         title: "A kitchen that holds its quiet at full house.",
         body:
-          "The room sits between two living spaces and resolves both. The family eats there every morning; we still photograph it the way we left it.",
+          "The room sits between two living spaces and resolves both. The family eats there every morning.",
       },
     ],
   },
@@ -95,7 +95,7 @@ export const projects = [
         kicker: "Furniture",
         title: "A Carrara fireplace that does not need a fire.",
         body:
-          "The hearth is fluted noir Saint-Laurent marble, drawn for the project and cut in Italy. It anchors the seating area and reflects the parquet de Versailles, which we laid in 600 mm panels in smoked French oak.",
+          "It anchors the seating area and reflects the parquet de Versailles, which we laid in 600 mm panels in smoked French oak.",
       },
       {
         kicker: "Result",
@@ -191,7 +191,7 @@ export const projects = [
         kicker: "Architecture",
         title: "Acoustic plaster on every soft surface.",
         body:
-          "We pulled the ceiling down 80 mm to fit lime-plaster acoustic panels and a continuous linen wall behind the desks. Reverberation drops by 0.6 seconds. The room sounds like a library should.",
+          "We pulled the ceiling down 80 mm to fit lime-plaster acoustic panels and a continuous linen wall behind the desks. The room sounds like a library should.",
       },
       {
         kicker: "Furniture",
@@ -299,13 +299,13 @@ export const projects = [
         kicker: "Furniture",
         title: "Chandeliers drawn for the project.",
         body:
-          "Six bespoke chandeliers in alabaster and brushed brass were drawn for the room and hand-fabricated in Murano. Banquette seating is hand-tufted in caramel mohair.",
+          "Banquette seating is hand-tufted in caramel mohair.",
       },
       {
         kicker: "Result",
         title: "A 90-cover dining room that feels like 30.",
         body:
-          "Acoustic panels behind the boiserie kept the noise floor below 65 dB at full house. The dining room reads as a quiet conversation, even when it is not.",
+          "The dining room reads as a quiet conversation, even when it is not.",
       },
     ],
   },

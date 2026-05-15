@@ -47,12 +47,13 @@
   color: var(--brand-beige);
   margin-bottom: clamp(28px, 4vw, 56px);
   padding: 10px 22px;
-  border: 1px solid rgba(232, 222, 201, 0.28);
+  border: 1px solid rgba(232, 222, 201, 0.45);
   border-radius: 999px;
-  background: rgba(13, 13, 13, 0.18);
+  background: rgba(13, 13, 13, 0.55);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  opacity: 0.95;
+  opacity: 1;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.7);
 }
 
 .heroTitle {
@@ -61,7 +62,7 @@
   line-height: 0.88;
   font-weight: 300;
   letter-spacing: -0.015em;
-  text-shadow: 0 4px 60px rgba(0, 0, 0, 0.45);
+  text-shadow: 0 2px 28px rgba(0, 0, 0, 0.75), 0 4px 60px rgba(0, 0, 0, 0.55);
 }
 .heroTitle em { font-style: italic; color: #fff; }
 
@@ -70,9 +71,9 @@
   color: var(--brand-beige);
   max-width: 60ch;
   margin-inline: auto;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 1px 24px rgba(0, 0, 0, 0.7);
 }
-.heroSub p { color: rgba(232, 222, 201, 0.85); }
+.heroSub p { color: var(--brand-beige); text-shadow: 0 1px 24px rgba(0, 0, 0, 0.7); }
 
 .heroCta {
   display: inline-flex;

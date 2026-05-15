@@ -60,7 +60,7 @@ export default function HomeClient() {
           <MaskedHeading
             as="h1"
             className={`display ${styles.heroTitle}`}
-            lines={["Quiet rooms,", <em key="i">authored</em>, "for the long arc."]}
+            lines={["Quiet spaces,", <em key="i">authored</em>, "for the long arc."]}
           />
 
           <Reveal delay={500} className={styles.heroSub}>
@@ -250,8 +250,8 @@ export default function HomeClient() {
           <Reveal className={styles.aboutMedia}>
             <div className={styles.aboutImageWrap}>
               <Image
-                src={projects[1].images[1]}
-                alt="An OTILÌA interior — soft light on plaster, oak, stone."
+                src="/team/aysha.jpg"
+                alt="Aysha Al Tenaji, founder of OTILÌA"
                 fill
                 sizes="(max-width: 900px) 100vw, 50vw"
                 quality={75}

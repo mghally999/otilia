@@ -60,7 +60,7 @@ export default function HomeClientAr() {
             as="h1"
             className={`display ${styles.heroTitle}`}
             lines={[
-              <span key="1">غرفٌ هادئة،</span>,
+              <span key="1">مساحاتٌ هادئة،</span>,
               <span key="2"><em className="italic">مُؤلَّفة</em> لطول الزمن.</span>,
             ]}
           />
@@ -250,8 +250,8 @@ export default function HomeClientAr() {
           <Reveal className={styles.aboutMedia}>
             <div className={styles.aboutImageWrap}>
               <Image
-                src={projects[1].images[1]}
-                alt="فضاء داخلي من أوتيليا — ضوء ناعم على الجص والبلوط والحجر."
+                src="/team/aysha.jpg"
+                alt="عائشة آل التِناجي، مؤسِّسة أوتيليا"
                 fill
                 sizes="(max-width: 900px) 100vw, 50vw"
                 quality={75}

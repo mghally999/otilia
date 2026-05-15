@@ -50,7 +50,7 @@ export default function AboutAr() {
                 <span className="diamond" /> {ui.labels.eyebrow.vision}
               </span>
               <h2 className={`h2 ${styles.vmTitle}`}>
-                <em className="italic">رؤيتنا.</em>
+                <em className="italic">رؤيتنا</em>
               </h2>
               <p className={styles.vmBody}>{brand.vision}</p>
             </Reveal>
@@ -59,7 +59,7 @@ export default function AboutAr() {
                 <span className="diamond" /> {ui.labels.eyebrow.mission}
               </span>
               <h2 className={`h2 ${styles.vmTitle}`}>
-                <em className="italic">مهمتنا.</em>
+                <em className="italic">مهمتنا</em>
               </h2>
               <p className={styles.vmBody}>{brand.mission}</p>
             </Reveal>

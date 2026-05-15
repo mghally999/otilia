@@ -22,7 +22,7 @@ export default function ProjectsPage() {
           <MaskedHeading
             as="h1"
             className={`display ${styles.h1}`}
-            lines={["A folio of", <em key="i">six rooms.</em>]}
+            lines={["A folio of", <em key="i">different spaces.</em>]}
           />
           <Reveal delay={300}>
             <p className={`lead ${styles.lead}`}>

@@ -14,7 +14,7 @@ export default function Footer() {
   const t = isAr
     ? {
         beginProject: "ابدأ مشروعًا",
-        ctaTitle: ["دعنا نُؤلِّف", "بيتك."],
+        ctaTitle: ["دعنا نُصمّم", "مساحتك."],
         startConversation: "ابدأ حوارًا",
         studio: "الاستوديو",
         contact: "تواصل",
@@ -31,7 +31,7 @@ export default function Footer() {
       }
     : {
         beginProject: "Begin a project",
-        ctaTitle: ["Let us", "author", "your home."],
+        ctaTitle: ["Let us", "design", "your space."],
         startConversation: "Start a Conversation",
         studio: "Studio",
         contact: "Contact",
