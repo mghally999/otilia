@@ -1,0 +1,104 @@
+.header {
+  padding-top: clamp(140px, 18vw, 200px);
+  padding-bottom: clamp(40px, 6vw, 80px);
+  background: var(--bg);
+}
+
+.h1 {
+  margin-top: 28px;
+  font-size: clamp(56px, 12vw, 156px);
+  letter-spacing: -0.02em;
+  line-height: 0.92;
+}
+.h1 em { color: var(--brand-gold); }
+
+.lead {
+  margin-top: 28px;
+  max-width: 64ch;
+}
+
+.list {
+  padding-block: clamp(40px, 6vw, 80px) clamp(80px, 12vw, 160px);
+  background: var(--bg);
+}
+
+.row {
+  border-top: 1px solid var(--hairline);
+  padding-block: clamp(40px, 6vw, 100px);
+}
+.row:last-child { border-bottom: 1px solid var(--hairline); }
+
+.rowLink {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(28px, 5vw, 80px);
+  align-items: center;
+  color: inherit;
+  transition: transform 800ms var(--ease-emph);
+}
+.rowLeft  .rowMedia { order: 1; }
+.rowLeft  .rowMeta  { order: 2; }
+.rowRight .rowMedia { order: 2; }
+.rowRight .rowMeta  { order: 1; }
+
+@media (max-width: 800px) {
+  .rowLink { grid-template-columns: 1fr; gap: 28px; }
+  .rowLeft .rowMedia, .rowRight .rowMedia { order: 1; }
+  .rowLeft .rowMeta, .rowRight .rowMeta { order: 2; }
+}
+
+.rowMedia {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 2px;
+}
+.rowMedia img {
+  transition: transform 1500ms var(--ease-emph);
+  filter: brightness(0.94);
+}
+.rowLink:hover .rowMedia img { transform: scale(1.05); }
+
+.rowMeta { display: flex; flex-direction: column; gap: 16px; }
+
+.rowNumber {
+  font-family: var(--f-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  color: var(--brand-gold);
+}
+
+.rowTitle {
+  font-size: clamp(40px, 6vw, 88px);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+
+.rowSub {
+  font-size: clamp(17px, 1.6vw, 22px);
+  font-family: var(--f-display);
+  font-style: italic;
+  color: var(--fg-muted);
+  margin-bottom: 16px;
+}
+
+.rowDl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  padding-block: 20px;
+  border-block: 1px solid var(--hairline);
+  margin-block: 8px 16px;
+}
+@media (max-width: 600px) { .rowDl { grid-template-columns: repeat(2, 1fr); } }
+
+.rowDl > div { display: flex; flex-direction: column; gap: 6px; }
+.rowDl dt {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+.rowDl dd { font-size: 14px; color: var(--fg); }

@@ -1,0 +1,762 @@
+/* ==========================================================================
+   OTILÌA — Global stylesheet
+   Brand tokens • Dual theme • Reset • Base typography • Reveal animations
+   ========================================================================== */
+
+:root {
+  /* Brand source-of-truth (from the brand guidelines PDF) */
+  --brand-espresso: #5B4636;     /* Primary  — Espresso Noir */
+  --brand-beige:    #E8DEC9;     /* Secondary — Silk Beige */
+  --brand-obsidian: #0D0D0D;     /* Tertiary — Obsidian Black */
+  --brand-gold:     #9C7C38;     /* Accent   — Desert Gold */
+
+  /* Extended palette for atmosphere */
+  --espresso-50:  #f6f1eb;
+  --espresso-100: #ebe1d3;
+  --espresso-200: #cdb89c;
+  --espresso-300: #a88c69;
+  --espresso-400: #7d6249;
+  --espresso-500: #5B4636;
+  --espresso-600: #4a3829;
+  --espresso-700: #3a2c20;
+  --espresso-800: #2a1f17;
+  --espresso-900: #1c140e;
+  --gold-soft:    #b89456;
+  --gold-deep:    #7e6128;
+
+  /* Typography — fonts loaded via <link> in layout.js head */
+  --f-display: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+  --f-body:    'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  --f-arabic:        'Noto Kufi Arabic', 'Amiri', 'Cormorant Garamond', serif;
+  --f-arabic-serif:  'Amiri', 'Noto Kufi Arabic', serif;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-emph: cubic-bezier(0.16, 1, 0.3, 1);
+  --t-fast: 240ms;
+  --t-base: 480ms;
+  --t-slow: 880ms;
+
+  /* Layout */
+  --gutter: clamp(20px, 4vw, 56px);
+  --rail:   clamp(72px, 8vw, 120px);
+  --maxw:   1640px;
+  --reading: 64ch;
+
+  /* Type scale */
+  --fs-display: clamp(56px, 11vw, 168px);
+  --fs-h1:      clamp(40px, 7.2vw, 104px);
+  --fs-h2:      clamp(32px, 5vw, 72px);
+  --fs-h3:      clamp(22px, 2.4vw, 32px);
+  --fs-lead:    clamp(17px, 1.4vw, 22px);
+  --fs-body:    16px;
+  --fs-small:   13px;
+  --fs-tiny:    11px;
+}
+
+/* Theme: Dark (Espresso Noir) — default */
+:root,
+[data-theme="dark"] {
+  --bg:         var(--brand-espresso);
+  --bg-deep:    var(--espresso-700);
+  --bg-soft:    var(--espresso-600);
+  --fg:         var(--brand-beige);
+  --fg-strong:  #f6f0e1;
+  --fg-muted:   rgba(232, 222, 201, 0.62);
+  --fg-dim:     rgba(232, 222, 201, 0.32);
+  --hairline:   rgba(232, 222, 201, 0.16);
+  --hairline-strong: rgba(232, 222, 201, 0.32);
+  --gold:       var(--brand-gold);
+  --accent:     var(--brand-gold);
+  --card:       rgba(232, 222, 201, 0.04);
+  --shadow-soft: 0 2px 30px rgba(0, 0, 0, 0.25);
+  --shadow-deep: 0 30px 80px rgba(0, 0, 0, 0.45);
+  --hero-overlay: linear-gradient(
+    180deg,
+    rgba(13, 13, 13, 0.35) 0%,
+    rgba(13, 13, 13, 0.18) 28%,
+    rgba(13, 13, 13, 0.4) 60%,
+    rgba(91, 70, 54, 0.92) 88%,
+    var(--bg) 100%
+  );
+  color-scheme: dark;
+}
+
+/* Theme: Light (Silk Beige) */
+[data-theme="light"] {
+  --bg:         var(--brand-beige);
+  --bg-deep:    #d9cdb3;
+  --bg-soft:    #f1ead8;
+  --fg:         var(--espresso-700);
+  --fg-strong:  var(--espresso-900);
+  --fg-muted:   rgba(58, 44, 32, 0.66);
+  --fg-dim:     rgba(58, 44, 32, 0.32);
+  --hairline:   rgba(58, 44, 32, 0.18);
+  --hairline-strong: rgba(58, 44, 32, 0.32);
+  --gold:       var(--gold-deep);
+  --accent:     var(--brand-gold);
+  --card:       rgba(255, 253, 247, 0.55);
+  --shadow-soft: 0 2px 24px rgba(58, 44, 32, 0.08);
+  --shadow-deep: 0 30px 80px rgba(58, 44, 32, 0.18);
+  --hero-overlay: linear-gradient(
+    180deg,
+    rgba(13, 13, 13, 0.5) 0%,
+    rgba(13, 13, 13, 0.25) 28%,
+    rgba(13, 13, 13, 0.4) 60%,
+    rgba(232, 222, 201, 0.92) 88%,
+    var(--bg) 100%
+  );
+  color-scheme: light;
+}
+
+/* ===== Reset ===== */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--f-body);
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: 1.65;
+  background: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition: background-color var(--t-base) var(--ease-out),
+              color var(--t-base) var(--ease-out);
+}
+
+img, picture, video, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button, input, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: var(--brand-gold);
+  color: var(--brand-beige);
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand-gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ===== Type scale presets ===== */
+.display, .h1, .h2, .h3 {
+  font-family: var(--f-display);
+  font-weight: 300;
+  line-height: 0.96;
+  letter-spacing: -0.01em;
+}
+.display { font-size: var(--fs-display); line-height: 0.86; }
+.h1      { font-size: var(--fs-h1);      line-height: 0.92; }
+.h2      { font-size: var(--fs-h2);      line-height: 1.0;  }
+.h3      { font-size: var(--fs-h3);      line-height: 1.18; font-weight: 400; }
+
+.italic { font-style: italic; }
+
+.eyebrow {
+  font-family: var(--f-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+.lead {
+  font-size: var(--fs-lead);
+  line-height: 1.55;
+  font-weight: 300;
+  font-family: var(--f-display);
+  letter-spacing: -0.005em;
+  max-width: 56ch;
+}
+
+/* ===== Layout primitives ===== */
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: clamp(80px, 14vw, 220px);
+  position: relative;
+}
+.section--tight { padding-block: clamp(56px, 10vw, 140px); }
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--hairline-strong), transparent);
+  border: 0;
+}
+
+.gold-rule {
+  display: inline-block;
+  width: 64px;
+  height: 1px;
+  background: var(--brand-gold);
+  vertical-align: middle;
+}
+
+/* ===== Cursor ===== */
+/* Native cursor visible by default; hidden only after JS hydration on hover devices.
+   Cursor.js adds the .has-cursor class to <html> on mount. */
+@media (hover: hover) and (pointer: fine) {
+  html.has-cursor, html.has-cursor body { cursor: none; }
+  html.has-cursor a,
+  html.has-cursor button,
+  html.has-cursor [role="button"],
+  html.has-cursor input,
+  html.has-cursor textarea,
+  html.has-cursor select { cursor: none; }
+}
+
+/* ===== Scroll reveal ===== */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 32px, 0);
+  transition: opacity 900ms var(--ease-emph),
+              transform 1100ms var(--ease-emph);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Stagger children */
+.stagger > * {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition: opacity 900ms var(--ease-emph),
+              transform 1100ms var(--ease-emph);
+}
+.stagger.is-visible > *           { opacity: 1; transform: translate3d(0, 0, 0); }
+.stagger.is-visible > *:nth-child(1) { transition-delay: 0ms; }
+.stagger.is-visible > *:nth-child(2) { transition-delay: 80ms; }
+.stagger.is-visible > *:nth-child(3) { transition-delay: 160ms; }
+.stagger.is-visible > *:nth-child(4) { transition-delay: 240ms; }
+.stagger.is-visible > *:nth-child(5) { transition-delay: 320ms; }
+.stagger.is-visible > *:nth-child(6) { transition-delay: 400ms; }
+.stagger.is-visible > *:nth-child(7) { transition-delay: 480ms; }
+.stagger.is-visible > *:nth-child(8) { transition-delay: 560ms; }
+
+/* Per-line reveal for headings.
+   Extra vertical padding keeps Latin/Arabic descenders (g, p, y, ج, ع, م) from
+   clipping when overflow: hidden masks the slide-in. */
+.line-mask {
+  display: block;
+  overflow: hidden;
+  padding-block: 0.18em 0.22em;
+  margin-block: -0.18em -0.22em;
+}
+.line-mask > span {
+  display: block;
+  transform: translate3d(0, 110%, 0);
+  transition: transform 1100ms var(--ease-emph);
+}
+.is-visible .line-mask > span { transform: translate3d(0, 0, 0); }
+
+/* Display & heading classes — give descenders room everywhere */
+.display, .h1, .h2, .h3 {
+  padding-block: 0.04em 0.08em;
+}
+.line-mask:nth-child(2) > span { transition-delay: 120ms; }
+.line-mask:nth-child(3) > span { transition-delay: 220ms; }
+.line-mask:nth-child(4) > span { transition-delay: 320ms; }
+
+/* ===== Accent strokes ===== */
+.gold-stroke {
+  display: inline-block;
+  width: 56px;
+  height: 1px;
+  background: var(--brand-gold);
+  margin-right: 16px;
+  vertical-align: middle;
+}
+
+.diamond {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--brand-gold);
+  transform: rotate(45deg);
+  margin-right: 12px;
+  vertical-align: middle;
+}
+
+/* ===== Buttons / links ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 30px;
+  font-family: var(--f-body);
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--brand-beige);
+  background: var(--brand-espresso);
+  border: 1px solid var(--brand-gold);
+  transition: background-color 480ms var(--ease-out),
+              color 480ms var(--ease-out),
+              transform 480ms var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+.btn::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: var(--brand-gold);
+  transform: translateY(101%);
+  transition: transform 600ms var(--ease-emph);
+  z-index: -1;
+}
+.btn:hover { color: var(--brand-obsidian); border-color: var(--brand-gold); }
+.btn:hover::before { transform: translateY(0); }
+
+.btn--ghost {
+  background: transparent;
+  color: var(--fg);
+  border: 1px solid var(--hairline-strong);
+}
+.btn--ghost:hover { color: var(--brand-obsidian); }
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--fg);
+  transition: color 360ms var(--ease-out), gap 360ms var(--ease-out);
+}
+.link-arrow::after {
+  content: "→";
+  font-family: var(--f-display);
+  font-size: 22px;
+  letter-spacing: 0;
+  transition: transform 480ms var(--ease-emph);
+}
+.link-arrow:hover { color: var(--brand-gold); gap: 18px; }
+.link-arrow:hover::after { transform: translateX(6px); }
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal, .stagger > * { opacity: 1; transform: none; }
+  .line-mask > span { transform: none; }
+}
+
+/* Print */
+@media print {
+  body { background: #fff; color: #000; }
+  .no-print { display: none !important; }
+}
+
+/* Skip link — visible only when keyboard-focused */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 8px;
+  background: var(--brand-gold);
+  color: var(--brand-obsidian);
+  padding: 10px 18px;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  z-index: 999;
+  border-radius: 2px;
+}
+.skip-link:focus { left: 8px; }
+
+/* ==========================================================================
+   RTL — Right-to-Left support for the Arabic site
+   The codebase uses physical properties (left/right/padding-left). When the
+   document is in RTL mode we mirror them via these targeted overrides.
+   ========================================================================== */
+
+/* Global overflow guards — prevent any child from triggering horizontal scroll */
+html, body { max-width: 100%; overflow-x: clip; }
+html { overflow-x: hidden; }
+
+/* Word-wrap defence for long unbroken Arabic phrases / English URLs */
+[dir="rtl"] body,
+.is-ar body,
+[dir="rtl"] p,
+.is-ar p,
+[dir="rtl"] li,
+.is-ar li,
+[dir="rtl"] span,
+.is-ar span,
+[dir="rtl"] a,
+.is-ar a,
+[dir="rtl"] h1,
+.is-ar h1, [dir="rtl"] h2,
+.is-ar h2, [dir="rtl"] h3,
+.is-ar h3, [dir="rtl"] h4 ,
+.is-ar h4 {
+  overflow-wrap: anywhere;
+  word-wrap: break-word;
+}
+
+/* ==========================================================================
+   Arabic typography & visual hierarchy
+   Arabic letters have ascenders/descenders (ج، ح، خ، ع، غ، م، ي) and diacritics.
+   Latin's tight tracking + 0.86–1.0 line-heights make Arabic collide and look
+   tiny on screen. We swap to Noto Kufi Arabic (modern sans), reduce display
+   font-size, and raise weight so headlines feel substantial without overflowing.
+   ========================================================================== */
+[dir="rtl"] body,
+.is-ar body {
+  font-family: var(--f-arabic);
+  line-height: 1.8;
+  font-weight: 500;
+}
+[dir="rtl"] p,
+.is-ar p { line-height: 1.9; }
+
+/* All headings — generous line-height + bold weight so they read as headings */
+[dir="rtl"] h1,
+.is-ar h1, [dir="rtl"] h2,
+.is-ar h2, [dir="rtl"] h3,
+.is-ar h3, [dir="rtl"] h4,
+.is-ar h4,
+[dir="rtl"] .display,
+.is-ar .display, [dir="rtl"] .h1,
+.is-ar .h1, [dir="rtl"] .h2,
+.is-ar .h2, [dir="rtl"] .h3,
+.is-ar .h3,
+[dir="rtl"] [class*="Title"],
+.is-ar [class*="Title"],
+[dir="rtl"] [class*="Heading"],
+.is-ar [class*="Heading"],
+[dir="rtl"] [class*="heroTitle"],
+.is-ar [class*="heroTitle"],
+[dir="rtl"] [class*="workTitle"],
+.is-ar [class*="workTitle"],
+[dir="rtl"] [class*="phHeading"],
+.is-ar [class*="phHeading"],
+[dir="rtl"] [class*="ctaTitle"],
+.is-ar [class*="ctaTitle"],
+[dir="rtl"] [class*="chapterTitle"],
+.is-ar [class*="chapterTitle"],
+[dir="rtl"] [class*="serviceTitle"],
+.is-ar [class*="serviceTitle"],
+[dir="rtl"] [class*="aboutTitle"],
+.is-ar [class*="aboutTitle"],
+[dir="rtl"] [class*="statNum"],
+.is-ar [class*="statNum"],
+[dir="rtl"] [class*="overlayLink"],
+.is-ar [class*="overlayLink"] {
+  font-family: var(--f-arabic);
+  letter-spacing: 0;
+  font-weight: 700;
+  line-height: 1.4 !important;
+}
+
+/* Display heading — Arabic glyphs are larger than Latin glyphs of the same
+   px size; cap the clamp ceiling so words do not overflow the viewport, and
+   tighten line-height because Noto Kufi already ships with built-in airy
+   metrics. */
+[dir="rtl"] .display,
+.is-ar .display {
+  font-size: clamp(36px, 6.4vw, 96px) !important;
+  line-height: 1.18 !important;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+[dir="rtl"] .h1,
+.is-ar .h1 {
+  font-size: clamp(32px, 5.2vw, 72px) !important;
+  line-height: 1.22 !important;
+  font-weight: 700;
+}
+[dir="rtl"] .h2,
+.is-ar .h2 {
+  font-size: clamp(28px, 4vw, 56px) !important;
+  line-height: 1.28 !important;
+  font-weight: 700;
+}
+[dir="rtl"] .h3,
+.is-ar .h3 {
+  font-size: clamp(20px, 2vw, 28px) !important;
+  line-height: 1.4 !important;
+  font-weight: 600;
+}
+
+/* Section-level Arabic title overrides — these were re-declared per module
+   with very large Latin clamps. Snap them back to readable Arabic sizes. */
+[dir="rtl"] [class*="heroTitle"],
+.is-ar [class*="heroTitle"] {
+  font-size: clamp(36px, 6.4vw, 96px) !important;
+  line-height: 1.18 !important;
+  font-weight: 700;
+}
+[dir="rtl"] [class*="workTitle"],
+.is-ar [class*="workTitle"] {
+  font-size: clamp(32px, 5.6vw, 80px) !important;
+  line-height: 1.2 !important;
+  font-weight: 700;
+}
+[dir="rtl"] [class*="phHeading"],
+.is-ar [class*="phHeading"],
+[dir="rtl"] [class*="ctaTitle"],
+.is-ar [class*="ctaTitle"] {
+  font-size: clamp(28px, 4.6vw, 64px) !important;
+  line-height: 1.24 !important;
+  font-weight: 700;
+}
+
+/* Body text & lead — relaxed reading height, medium weight */
+[dir="rtl"] .lead,
+.is-ar .lead,
+[dir="rtl"] [class*="phLead"],
+.is-ar [class*="phLead"],
+[dir="rtl"] [class*="aboutLead"],
+.is-ar [class*="aboutLead"],
+[dir="rtl"] [class*="serviceDesc"],
+.is-ar [class*="serviceDesc"] {
+  font-family: var(--f-arabic);
+  letter-spacing: 0;
+  line-height: 1.9;
+  font-weight: 500;
+  font-size: clamp(15px, 1.2vw, 18px);
+}
+
+/* Italic emphasis does not exist in Arabic — translate it to a serif accent
+   (Amiri) + gold colour, so the visual cue still lands. */
+[dir="rtl"] em,
+.is-ar em,
+[dir="rtl"] .italic,
+.is-ar .italic {
+  font-family: var(--f-arabic-serif);
+  font-style: normal;
+  font-weight: 700;
+  color: var(--brand-gold);
+}
+
+/* Eyebrows — drop tracking and uppercasing for Arabic, bump readable size */
+[dir="rtl"] .eyebrow,
+.is-ar .eyebrow,
+[dir="rtl"] [class*="eyebrow"],
+.is-ar [class*="eyebrow"] {
+  font-family: var(--f-arabic);
+  letter-spacing: 0.02em;
+  text-transform: none;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.7;
+  color: var(--brand-gold);
+}
+
+/* Buttons — letter-spacing and uppercase don't apply to Arabic, raise weight */
+[dir="rtl"] .btn,
+.is-ar .btn,
+[dir="rtl"] .link-arrow,
+.is-ar .link-arrow,
+[dir="rtl"] [class*="btn"],
+.is-ar [class*="btn"],
+[dir="rtl"] [class*="link"],
+.is-ar [class*="link"] {
+  font-family: var(--f-arabic);
+  letter-spacing: 0.02em;
+  text-transform: none;
+  line-height: 1.6;
+  font-weight: 600;
+}
+[dir="rtl"] .btn,
+.is-ar .btn { font-size: 14px; padding: 18px 32px; }
+
+/* Numbers shown editorial style (e.g. 01, 02 chapter numbers) — keep Latin font */
+[dir="rtl"] [class*="principleNum"],
+.is-ar [class*="principleNum"],
+[dir="rtl"] [class*="chapterNumber"],
+.is-ar [class*="chapterNumber"],
+[dir="rtl"] [class*="overlayLinkNum"],
+.is-ar [class*="overlayLinkNum"],
+[dir="rtl"] [class*="workNumber"] ,
+.is-ar [class*="workNumber"] {
+  font-family: var(--f-display);
+  letter-spacing: 0.32em;
+}
+
+/* Mirror arrow markers */
+[dir="rtl"] .link-arrow::after ,
+.is-ar .link-arrow::after { content: "←"; }
+[dir="rtl"] .link-arrow:hover::after ,
+.is-ar .link-arrow:hover::after { transform: translateX(-6px); }
+
+/* Mirror the gold-stroke margin */
+[dir="rtl"] .gold-stroke ,
+.is-ar .gold-stroke { margin-right: 0; margin-left: 16px; }
+[dir="rtl"] .diamond     ,
+.is-ar .diamond     { margin-right: 0; margin-left: 12px; }
+
+/* ==========================================================================
+   Section rhythm — ensure breathing room between sections in RTL
+   Arabic often reads more compressed; we add extra padding-block to relax
+   ========================================================================== */
+[dir="rtl"] .section ,
+.is-ar .section { padding-block: clamp(96px, 16vw, 240px); }
+[dir="rtl"] .section--tight ,
+.is-ar .section--tight { padding-block: clamp(72px, 12vw, 160px); }
+
+/* Bullet/list spacing — Arabic descenders need extra row gap */
+[dir="rtl"] ul,
+.is-ar ul, [dir="rtl"] ol ,
+.is-ar ol { line-height: 1.95; }
+[dir="rtl"] li ,
+.is-ar li { margin-block: 8px; }
+
+/* Service items — flip arrow position and hover padding */
+[dir="rtl"] [class*="heroLabelLeft"]  ,
+.is-ar [class*="heroLabelLeft"]  { left: auto !important; right: var(--gutter); text-align: right; }
+[dir="rtl"] [class*="heroLabelRight"] ,
+.is-ar [class*="heroLabelRight"] { right: auto !important; left: var(--gutter); text-align: left; }
+
+[dir="rtl"] [class*="svcItem"]::after  ,
+.is-ar [class*="svcItem"]::after  { content: "←"; right: auto !important; left: 0; transform: translateY(-50%) translateX(20px); }
+[dir="rtl"] [class*="svcItem"]:hover   ,
+.is-ar [class*="svcItem"]:hover   { padding-left: 0 !important; padding-right: 18px; }
+[dir="rtl"] [class*="svcItem"]:hover::after ,
+.is-ar [class*="svcItem"]:hover::after { transform: translateY(-50%) translateX(0); }
+
+/* Work / project links — arrow direction */
+[dir="rtl"] [class*="workArrow"],
+.is-ar [class*="workArrow"],
+[dir="rtl"] [class*="nextArrow"] ,
+.is-ar [class*="nextArrow"] { transform: scaleX(-1); }
+[dir="rtl"] [class*="workLink"]:hover [class*="workArrow"]  ,
+.is-ar [class*="workLink"]:hover [class*="workArrow"]  { transform: scaleX(-1) translateX(8px); }
+[dir="rtl"] [class*="nextLink"]:hover [class*="nextArrow"]  ,
+.is-ar [class*="nextLink"]:hover [class*="nextArrow"]  { transform: scaleX(-1) translateX(20px); }
+
+/* Process card borders — flip the side */
+[dir="rtl"] [class*="processCard"] ,
+.is-ar [class*="processCard"] {
+  border-right: 0 !important;
+  border-left: 1px solid var(--hairline);
+}
+[dir="rtl"] [class*="processCard"]:last-child ,
+.is-ar [class*="processCard"]:last-child { border-left: 0; }
+@media (max-width: 720px) {
+  [dir="rtl"] [class*="processCard"] ,
+.is-ar [class*="processCard"] { border-left: 0 !important; }
+}
+
+/* Lightbox controls — swap arrows/positions */
+[dir="rtl"] [class*="lightboxClose"] ,
+.is-ar [class*="lightboxClose"] { right: auto !important; left: 28px; }
+[dir="rtl"] [class*="lightboxPrev"]  ,
+.is-ar [class*="lightboxPrev"]  { left: auto !important;  right: 28px; }
+[dir="rtl"] [class*="lightboxNext"]  ,
+.is-ar [class*="lightboxNext"]  { right: auto !important; left: 28px; }
+@media (max-width: 720px) {
+  [dir="rtl"] [class*="lightboxClose"] ,
+.is-ar [class*="lightboxClose"] { left: 16px; }
+  [dir="rtl"] [class*="lightboxPrev"]  ,
+.is-ar [class*="lightboxPrev"]  { right: 12px; }
+  [dir="rtl"] [class*="lightboxNext"]  ,
+.is-ar [class*="lightboxNext"]  { left: 12px; }
+}
+
+/* Marquee — keep direction sensible in RTL */
+[dir="rtl"] [class*="track"] ,
+.is-ar [class*="track"] { direction: ltr; }
+
+/* Nav menu hover — flip translation */
+[dir="rtl"] [class*="overlayLink"]:hover [class*="overlayLinkText"] ,
+.is-ar [class*="overlayLink"]:hover [class*="overlayLinkText"] {
+  transform: translateX(-12px);
+}
+
+/* Overlay menu links — give Arabic descenders room */
+[dir="rtl"] [class*="overlayLink"] ,
+.is-ar [class*="overlayLink"] {
+  padding-block: 18px !important;
+  line-height: 1.4 !important;
+}
+
+/* Footer legal — keep flex direction even in RTL */
+[dir="rtl"] [class*="legal"] ,
+.is-ar [class*="legal"] { text-align: right; }
+
+/* Form fields — Arabic content alignment */
+[dir="rtl"] input,
+.is-ar input,
+[dir="rtl"] textarea,
+.is-ar textarea,
+[dir="rtl"] select ,
+.is-ar select { text-align: right; font-family: var(--f-arabic); line-height: 1.7; }
+
+/* Selection arrows in services list — point left in RTL */
+[dir="rtl"] [class*="serviceArrow"] ,
+.is-ar [class*="serviceArrow"] { transform: scaleX(-1); }
+
+/* General-purpose utility flips */
+[dir="rtl"] .text-left  ,
+.is-ar .text-left  { text-align: right; }
+[dir="rtl"] .text-right ,
+.is-ar .text-right { text-align: left; }
+
+/* Marquee text — Arabic phrases need more breathing room */
+[dir="rtl"] [class*="item"][class*="marquee" i] ,
+.is-ar [class*="item"][class*="marquee" i] { font-size: clamp(28px, 4.5vw, 64px); }
+[dir="rtl"] [class*="Marquee"] [class*="item"] ,
+.is-ar [class*="Marquee"] [class*="item"] { line-height: 1.5; }
+
+/* Stats — give the numerals breathing room */
+[dir="rtl"] [class*="stat"] [class*="num" i],
+.is-ar [class*="stat"] [class*="num" i],
+[dir="rtl"] [class*="statNum"] ,
+.is-ar [class*="statNum"] { line-height: 1.05 !important; font-family: var(--f-display); }
+[dir="rtl"] [class*="statLabel"] ,
+.is-ar [class*="statLabel"] { line-height: 1.7; margin-top: 8px; }
+
+/* Principle cards — extra padding for Arabic */
+[dir="rtl"] [class*="principle"] ,
+.is-ar [class*="principle"] { padding-block: clamp(28px, 3.5vw, 48px); }
+
+/* Chapter copy — generous line-height for prose blocks */
+[dir="rtl"] [class*="chapterBody"] p,
+.is-ar [class*="chapterBody"] p,
+[dir="rtl"] [class*="chapterCopy"] p ,
+.is-ar [class*="chapterCopy"] p { line-height: 2 !important; }

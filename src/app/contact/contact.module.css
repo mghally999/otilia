@@ -1,0 +1,233 @@
+/* Contact page */
+
+.hero {
+  padding-top: clamp(140px, 18vw, 220px);
+  padding-bottom: clamp(60px, 9vw, 120px);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.title {
+  margin: 28px 0 36px;
+  max-width: 14ch;
+  color: var(--fg-strong);
+}
+
+.lead {
+  max-width: 56ch;
+  color: var(--fg-muted);
+}
+
+/* ============ Body ============ */
+.body { padding-top: clamp(48px, 8vw, 96px); }
+
+.grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.4fr;
+  gap: clamp(40px, 6vw, 96px);
+}
+
+@media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+
+/* ============ Info column ============ */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  position: sticky;
+  top: 120px;
+  align-self: start;
+  border-right: 1px solid var(--hairline);
+  padding-right: clamp(20px, 3vw, 48px);
+}
+
+@media (max-width: 900px) {
+  .info {
+    position: static;
+    border-right: 0;
+    border-bottom: 1px solid var(--hairline);
+    padding-right: 0;
+    padding-bottom: 32px;
+  }
+}
+
+.infoHeading {
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: clamp(28px, 3vw, 40px);
+  letter-spacing: -0.01em;
+  color: var(--fg-strong);
+  margin-bottom: 12px;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.infoLink {
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: clamp(20px, 1.8vw, 26px);
+  color: var(--fg);
+  letter-spacing: -0.005em;
+  transition: color 360ms var(--ease-out);
+  word-break: break-word;
+}
+.infoLink:hover { color: var(--brand-gold); }
+
+.infoText {
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: clamp(18px, 1.5vw, 22px);
+  color: var(--fg);
+  line-height: 1.4;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--hairline-strong);
+  margin-block: 12px;
+}
+
+.notice {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--fg-muted);
+}
+
+/* ============ Form column ============ */
+.formWrap { display: flex; flex-direction: column; gap: 28px; }
+
+.formHeading {
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: clamp(36px, 4.6vw, 64px);
+  letter-spacing: -0.01em;
+  color: var(--fg-strong);
+  line-height: 1;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media (max-width: 600px) { .row { grid-template-columns: 1fr; } }
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.fieldFull { grid-column: 1 / -1; }
+
+.label {
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+.input {
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--hairline-strong);
+  padding: 14px 4px 14px;
+  font-family: var(--f-body);
+  font-size: 15px;
+  color: var(--fg);
+  border-radius: 0;
+  transition: border-color 360ms var(--ease-out), color 360ms var(--ease-out);
+}
+.input:focus {
+  outline: none;
+  border-bottom-color: var(--brand-gold);
+  color: var(--fg-strong);
+}
+.input::placeholder { color: var(--fg-dim); }
+
+select.input {
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--fg-muted) 50%),
+    linear-gradient(135deg, var(--fg-muted) 50%, transparent 50%);
+  background-position:
+    calc(100% - 16px) 50%,
+    calc(100% - 11px) 50%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: 28px;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 140px;
+  padding-top: 12px;
+  border-bottom: 1px solid var(--hairline-strong);
+  font-family: var(--f-body);
+  line-height: 1.6;
+}
+
+.submitRow {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.submitNote {
+  font-size: 13px;
+  color: var(--fg-muted);
+  max-width: 36ch;
+}
+
+.sentNote {
+  font-size: 14px;
+  color: var(--fg);
+  padding: 16px 18px;
+  background: var(--card);
+  border-left: 2px solid var(--brand-gold);
+  margin-top: 8px;
+}
+.sentNote a { color: var(--brand-gold); border-bottom: 1px solid currentColor; }
+
+/* ============ Pillars band ============ */
+.pillarsBand {
+  border-top: 1px solid var(--hairline);
+  padding-block: clamp(72px, 10vw, 140px);
+  text-align: center;
+  background: var(--bg);
+}
+
+.pillarsInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.pillarsLine {
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: clamp(40px, 6vw, 80px);
+  letter-spacing: -0.01em;
+  color: var(--fg-strong);
+}
+
+.pillarsArabic {
+  font-family: var(--f-arabic);
+  font-size: clamp(20px, 2vw, 28px);
+  color: var(--fg-muted);
+}
